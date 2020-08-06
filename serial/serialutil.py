@@ -346,6 +346,7 @@ class SerialBase(io.RawIOBase):
             raise ValueError("Not a valid stop bit size: {!r}".format(stopbits))
         self._stopbits = stopbits
         if self.is_open:
+            return
             self._reconfigure_port()
 
     @property
